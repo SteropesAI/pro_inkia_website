@@ -22,9 +22,7 @@ export default function CollectionCard({
   imageSrc,
   price,
   features,
-  idealFor,
-  linkText,
-  linkHref
+  idealFor
 }: CollectionCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 

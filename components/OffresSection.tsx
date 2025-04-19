@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-import CollectionSection from '@/components/CollectionSection';
 
 export default function OffresSection() {
   return (
@@ -27,11 +26,11 @@ export default function OffresSection() {
             <div className="bg-neutral-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
               <div className="bg-[#FFECDB] p-6">
                 <h4 className="text-2xl font-bold mb-2">1. COLLECTION</h4>
-                <p className="text-neutral-700 font-medium">Devenez propriétaire d'une œuvre qui vous ressemble</p>
+                <p className="text-neutral-700 font-medium">Devenez propriétaire d&apos;une œuvre qui vous ressemble</p>
               </div>
               <div className="p-6 flex-grow">
                 <p className="text-neutral-600 mb-6">
-                  Acquérez une œuvre d'art qui sublimera votre espace professionnel et captivera votre clientèle.
+                  Acquérez une œuvre d&apos;art qui sublimera votre espace professionnel et captivera votre clientèle.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start">
@@ -40,7 +39,7 @@ export default function OffresSection() {
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span>Tableaux grand format (jusqu'à 120 cm)</span>
+                    <span>Tableaux grand format (jusqu&apos;à 200 cm)</span>
                   </li>
                   <li className="flex items-start">
                     <div className="text-[#66C6E8] mr-2 mt-1">
@@ -223,7 +222,7 @@ export default function OffresSection() {
               <div className="p-8">
                 <h4 className="text-2xl font-bold mb-4">Pour grands espaces et multi-sites</h4>
                 <p className="text-neutral-600 mb-6">
-                  Déployez une identité artistique cohérente à travers plusieurs espaces, que ce soit au sein d'un même établissement ou à travers différents sites.
+                  Déployez une identité artistique cohérente à travers plusieurs espaces, que ce soit au sein d&apos;un même établissement ou à travers différents sites.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start">
@@ -248,7 +247,7 @@ export default function OffresSection() {
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span>Solutions pour halls d'accueil, espaces de travail, salles de réunion</span>
+                    <span>Solutions pour halls d&apos;accueil, espaces de travail, salles de réunion</span>
                   </li>
                   <li className="flex items-start">
                     <div className="text-[#66C6E8] mr-2 mt-1">

@@ -17,7 +17,7 @@ export default function WhyChooseUsSection() {
                 <Eye className="text-[#FFFFFF] h-6 w-6" />
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">CAPTEZ L'ATTENTION</h3>
+                <h3 className="text-xl font-bold mb-2">CAPTEZ L&apos;ATTENTION</h3>
                 <p className="text-neutral-300">
                   Nos œuvres aux couleurs vibrantes et aux compositions dynamiques attirent immédiatement le regard et créent un point focal dans votre espace.
                 </p>
@@ -31,7 +31,7 @@ export default function WhyChooseUsSection() {
               <div>
                 <h3 className="text-xl font-bold mb-2">VALORISEZ VOTRE IMAGE</h3>
                 <p className="text-neutral-300">
-                  L'art dans un espace professionnel communique une image innovante, créative et attentive aux détails.
+                  L&apos;art dans un espace professionnel communique une image innovante, créative et attentive aux détails.
                 </p>
               </div>
             </div>
@@ -45,7 +45,7 @@ export default function WhyChooseUsSection() {
               <div>
                 <h3 className="text-xl font-bold mb-2">CRÉEZ DES CONVERSATIONS</h3>
                 <p className="text-neutral-300">
-                  Nos tableaux suscitent naturellement commentaires et discussions, enrichissant l'expérience de vos clients et visiteurs.
+                  Nos tableaux suscitent naturellement commentaires et discussions, enrichissant l&apos;expérience de vos clients et visiteurs.
                 </p>
               </div>
             </div>

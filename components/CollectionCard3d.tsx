@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 interface CollectionCardProps {
@@ -23,9 +22,7 @@ export default function CollectionCard({
   imageSrc,
   price,
   features,
-  idealFor,
-  linkText,
-  linkHref
+  idealFor
 }: CollectionCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);

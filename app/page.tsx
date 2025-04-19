@@ -1,10 +1,7 @@
 import React from 'react';
-import { ArrowRight, Award, Eye, MessageSquare, Palette, RefreshCw, Shield, Star } from 'lucide-react';
-import Link from 'next/link';
 
 // Import des sections modulaires (à définir dans des fichiers séparés)
 import HeroSection from '@/components/HeroSection';
-import OffresSection from '@/components/OffresSection';
 import CollectionSection from '@/components/CollectionSection';
 import HorizonSection from '@/components/HorizonSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';

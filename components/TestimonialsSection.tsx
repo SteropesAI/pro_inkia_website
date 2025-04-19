@@ -17,7 +17,7 @@ export default function TestimonialsSection() {
               </svg>
             </div>
             <p className="text-lg mb-6">
-              Depuis l'installation du tableau, nos clients s'arrêtent et commentent systématiquement. C'est devenu un véritable point d'attraction dans notre boutique.
+              Depuis l&apos;installation du tableau, nos clients s&apos;arrêtent et commentent systématiquement. C&apos;est devenu un véritable point d&apos;attraction dans notre boutique.
             </p>
             <div>
               <div className="font-bold">Marie L.</div>
@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
               </svg>
             </div>
             <p className="text-lg mb-6">
-              Le système d'abonnement est parfait pour notre salon. Nos clients réguliers apprécient de découvrir une nouvelle œuvre à chaque saison, cela crée de la conversation et rafraîchit notre image.
+              Le système d&apos;abonnement est parfait pour notre salon. Nos clients réguliers apprécient de découvrir une nouvelle œuvre à chaque saison, cela crée de la conversation et rafraîchit notre image.
             </p>
             <div>
               <div className="font-bold">Thomas D.</div>
@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
               </svg>
             </div>
             <p className="text-lg mb-6">
-              Nous avons opté pour l'offre HORIZON pour décorer nos trois étages de bureaux. La cohérence artistique tout en ayant des œuvres différentes est exactement ce que nous recherchions.
+              Nous avons opté pour l&apos;offre HORIZON pour décorer nos trois étages de bureaux. La cohérence artistique tout en ayant des œuvres différentes est exactement ce que nous recherchions.
             </p>
             <div>
               <div className="font-bold">Philippe R.</div>

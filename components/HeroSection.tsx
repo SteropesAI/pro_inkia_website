@@ -11,7 +11,7 @@ export default function HeroSection() {
         </div>
         <div className="container mx-auto px-4 z-10 text-left md:text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
-            L'ART QUI <span className="text-[#66C6E8]">TRANSFORME</span> VOTRE ESPACE
+            L&apos;ART QUI <span className="text-[#66C6E8]">TRANSFORME</span> VOTRE ESPACE
             </h1>
         <p className="text-xl md:text-2xl text-neutral-200 max-w-3xl mx-auto mb-10">
           Des tableaux exclusifs pour valoriser votre espace professionnel et captiver votre clientèle

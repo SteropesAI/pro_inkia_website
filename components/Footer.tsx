@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-2xl mb-4"><span className="text-[#66C6E8]">pro.</span>inkia<span className="text-[#66C6E8]">.art</span></h3>
             <p className="mb-4 text-neutral-400">
-              L'art qui transforme votre espace professionnel
+              L&apos;art qui transforme votre espace professionnel
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">

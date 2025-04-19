@@ -24,7 +24,7 @@ export default function GarantiesSection() {
               <RefreshCw className="text-[#FFFFFF] h-6 w-6" />
             </div>
             <h3 className="font-bold mb-2">Satisfaction visuelle garantie</h3>
-            <p className="text-neutral-600 text-sm">Remplacement sous 14 jours si l'œuvre ne vous convient pas</p>
+            <p className="text-neutral-600 text-sm">Remplacement sous 14 jours si l&apos;œuvre ne vous convient pas</p>
           </div>
           
           <div className="bg-neutral-50 p-6 rounded-lg text-center hover:shadow-md transition-all duration-300 flex flex-col items-center">
@@ -32,7 +32,7 @@ export default function GarantiesSection() {
               <Award className="text-[#FFFFFF] h-6 w-6" />
             </div>
             <h3 className="font-bold mb-2">Exclusivité locale</h3>
-            <p className="text-neutral-600 text-sm">Aucun établissement n'aura le même tableau</p>
+            <p className="text-neutral-600 text-sm">Aucun établissement n&apos;aura le même tableau</p>
           </div>
           
           <div className="bg-neutral-50 p-6 rounded-lg text-center hover:shadow-md transition-all duration-300 flex flex-col items-center">
