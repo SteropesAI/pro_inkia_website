@@ -1,0 +1,213 @@
+{
+  "taxonomy": "sector-wizard (wizard-tag-mapping.json)",
+  "total": 128,
+  "autoTaggedAny": 128,
+  "stillPending": 0,
+  "fullyTagged": 128,
+  "byAxis": {
+    "univers": 128,
+    "ambiance": 128,
+    "colors": 128,
+    "domaine": 128
+  },
+  "byAxisValues": {
+    "univers": {
+      "voyage_horizon": 120,
+      "textiles_precieux": 8
+    },
+    "ambiance": {
+      "chaleureux_authentique": 24,
+      "luxueux_raffine": 24,
+      "evasion_exotique": 24,
+      "cocooning_intime": 32,
+      "contemporain_epure": 24
+    },
+    "colors": {
+      "terracotta_sable": 20,
+      "blanc_lin": 24,
+      "gris_perle_argent": 20,
+      "bleu_marine_or": 24,
+      "vert_foret_bois": 20,
+      "noir_laiton_hotel": 20
+    },
+    "domaine": {
+      "hotel_luxe_boutique": 128
+    }
+  },
+  "samples": [
+    {
+      "id": "02e6cb01-0",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "chaleureux_authentique",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, warm aesthetic, evoking refined luxury and quiet exclusivity, hig"
+    },
+    {
+      "id": "02e6cb01-1",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "chaleureux_authentique",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, warm aesthetic, evoking refined luxury and quiet exclusivity, hig"
+    },
+    {
+      "id": "02e6cb01-2",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "chaleureux_authentique",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, warm aesthetic, evoking refined luxury and quiet exclusivity, hig"
+    },
+    {
+      "id": "02e6cb01-3",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "chaleureux_authentique",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, warm aesthetic, evoking refined luxury and quiet exclusivity, hig"
+    },
+    {
+      "id": "9df2d9f3-0",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "luxueux_raffine",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, luxurious aesthetic, evoking refined luxury and quiet exclusivity"
+    },
+    {
+      "id": "9df2d9f3-1",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "luxueux_raffine",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, luxurious aesthetic, evoking refined luxury and quiet exclusivity"
+    },
+    {
+      "id": "9df2d9f3-2",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "luxueux_raffine",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, luxurious aesthetic, evoking refined luxury and quiet exclusivity"
+    },
+    {
+      "id": "9df2d9f3-3",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "luxueux_raffine",
+      "colors": "terracotta_sable",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, burnt sienna, warm beige, soft white, luxurious aesthetic, evoking refined luxury and quiet exclusivity"
+    },
+    {
+      "id": "1ba20bd5-0",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "evasion_exotique",
+      "colors": "blanc_lin",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, ivory white, natural linen beige, soft cream, exotic aesthetic, evoking refined luxury and quiet exclus"
+    },
+    {
+      "id": "1ba20bd5-1",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "evasion_exotique",
+      "colors": "blanc_lin",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, ivory white, natural linen beige, soft cream, exotic aesthetic, evoking refined luxury and quiet exclus"
+    },
+    {
+      "id": "1ba20bd5-2",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "evasion_exotique",
+      "colors": "blanc_lin",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, ivory white, natural linen beige, soft cream, exotic aesthetic, evoking refined luxury and quiet exclus"
+    },
+    {
+      "id": "1ba20bd5-3",
+      "auto": [
+        "domaine",
+        "univers",
+        "colors",
+        "ambiance"
+      ],
+      "univers": "voyage_horizon",
+      "ambiance": "evasion_exotique",
+      "colors": "blanc_lin",
+      "domaine": "hotel_luxe_boutique",
+      "promptSnippet": "abstract art inspired by abstract horizon line gradient, ivory white, natural linen beige, soft cream, exotic aesthetic, evoking refined luxury and quiet exclus"
+    }
+  ],
+  "leftPendingReasons": {
+    "noUniversMatch": 0,
+    "noAmbianceMatch": 0,
+    "noColorsMatch": 0,
+    "noDomaineMatch": 0
+  }
+}

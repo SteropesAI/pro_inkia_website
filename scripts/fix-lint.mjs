@@ -1,0 +1,15 @@
+import fs from "fs";
+const root = process.argv[2];
+const p = root + "/app/asso/[categorie]/page.tsx";
+let c = fs.readFileSync(p, "utf8");
+c = c.replace(/import Link from "next\/link";\r?\n/, "");
+fs.writeFileSync(p, c);
+console.log("removed Link");
+const w = root + "/components/wizard/PersonnaliserWizard.tsx";
+let wc = fs.readFileSync(w, "utf8");
+const needle = '<img src={thumb} alt="" className="absolute inset-0 w-full h-full object-cover opacity-90" />';
+const repl = "{/* eslint-disable-next-line @next/next/no-img-element */}\n        " + needle;
+if (!wc.includes(needle)) throw new Error("img not found");
+wc = wc.replace(needle, repl);
+fs.writeFileSync(w, wc);
+console.log("eslint ok");

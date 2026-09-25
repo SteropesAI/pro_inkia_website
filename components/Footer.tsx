@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-2xl mb-4"><span className="text-[#66C6E8]">pro.</span>inkia<span className="text-[#66C6E8]">.art</span></h3>
             <p className="mb-4 text-neutral-400">
-              L&apos;art qui transforme votre espace professionnel
+              L&apos;art qui vous ressemble
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
@@ -34,12 +34,17 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Liens rapides</h4>
             <ul className="space-y-2">
               <li>
+                <Link href="/c/r4t9bd" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
+                  Univers pro (exemple)
+                </Link>
+              </li>
+              <li>
                 <Link href="#offres" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
                   Nos offres
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
+                <Link href="/contact" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
                   Contact
                 </Link>
               </li>
@@ -49,8 +54,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
-                  Galerie
+                <Link href="/asso" className="text-neutral-400 hover:text-[#66C6E8] transition-colors">
+                  Galerie associations
                 </Link>
               </li>
             </ul>
@@ -59,7 +64,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4">Newsletter</h4>
             <p className="text-neutral-400 mb-4">
-              Inscrivez-vous pour recevoir nos actualités et offres exclusives.
+              Recevez nos nouveautés et propositions exclusives.
             </p>
             <form className="flex">
               <input

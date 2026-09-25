@@ -1,0 +1,1544 @@
+{
+  "generated_at": "2026-09-15T15:23:59.822727+00:00",
+  "matched": 192,
+  "unmatched": [],
+  "id_renames": [],
+  "mapping": [
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "rose-ether-33c11535-1",
+      "manifest_id": "33c11535-1",
+      "file_kept": "/collection/33c11535-1.png",
+      "id_changed": false,
+      "title_fr": "Rose d'éther"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "rose-flamme-660b51c7-2",
+      "manifest_id": "660b51c7-2",
+      "file_kept": "/collection/660b51c7-2.png",
+      "id_changed": false,
+      "title_fr": "Rose flamme"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "spirale-solaire-b0fbf613-0",
+      "manifest_id": "b0fbf613-0",
+      "file_kept": "/collection/b0fbf613-0.png",
+      "id_changed": false,
+      "title_fr": "Spirale solaire"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "lys-analyse-595171bf-0",
+      "manifest_id": "595171bf-0",
+      "file_kept": "/collection/595171bf-0.png",
+      "id_changed": false,
+      "title_fr": "Lys d'analyse"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tournesol-solaire-c0f057f3-3",
+      "manifest_id": "c0f057f3-3",
+      "file_kept": "/collection/c0f057f3-3.png",
+      "id_changed": false,
+      "title_fr": "Tournesol solaire"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "kaleidoscope-floral-f1198b8a-0",
+      "manifest_id": "f1198b8a-0",
+      "file_kept": "/collection/f1198b8a-0.png",
+      "id_changed": false,
+      "title_fr": "Kaléidoscope floral"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "kaleidoscope-floral-f1198b8a-1",
+      "manifest_id": "f1198b8a-1",
+      "file_kept": "/collection/f1198b8a-1.png",
+      "id_changed": false,
+      "title_fr": "Kaléidoscope floral — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "kaleidoscope-floral-f1198b8a-2",
+      "manifest_id": "f1198b8a-2",
+      "file_kept": "/collection/f1198b8a-2.png",
+      "id_changed": false,
+      "title_fr": "Kaléidoscope floral — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "equilibre-dore-67406921-2",
+      "manifest_id": "67406921-2",
+      "file_kept": "/collection/67406921-2.png",
+      "id_changed": false,
+      "title_fr": "Équilibre doré"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "rose-nouveau-c5db8960-3",
+      "manifest_id": "c5db8960-3",
+      "file_kept": "/collection/c5db8960-3.png",
+      "id_changed": false,
+      "title_fr": "Rose Nouveau"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "vitrail-cafe-1bb054be-0",
+      "manifest_id": "1bb054be-0",
+      "file_kept": "/collection/1bb054be-0.png",
+      "id_changed": false,
+      "title_fr": "Vitrail café"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "vitrail-torrefaction-718052bd-0",
+      "manifest_id": "718052bd-0",
+      "file_kept": "/collection/718052bd-0.png",
+      "id_changed": false,
+      "title_fr": "Vitrail torréfaction"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "vitrail-torrefaction-718052bd-1",
+      "manifest_id": "718052bd-1",
+      "file_kept": "/collection/718052bd-1.png",
+      "id_changed": false,
+      "title_fr": "Vitrail torréfaction — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tasse-vitrail-3c10d556-0",
+      "manifest_id": "3c10d556-0",
+      "file_kept": "/collection/3c10d556-0.png",
+      "id_changed": false,
+      "title_fr": "Tasse de vitrail"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "grains-gemmes-5c829717-1",
+      "manifest_id": "5c829717-1",
+      "file_kept": "/collection/5c829717-1.png",
+      "id_changed": false,
+      "title_fr": "Grains gemmes"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "grains-gemmes-5c829717-2",
+      "manifest_id": "5c829717-2",
+      "file_kept": "/collection/5c829717-2.png",
+      "id_changed": false,
+      "title_fr": "Grains gemmes — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "plume-dacte-7ff7cbb3-0",
+      "manifest_id": "7ff7cbb3-0",
+      "file_kept": "/collection/7ff7cbb3-0.png",
+      "id_changed": false,
+      "title_fr": "Plume d'acte"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "corbeille-noire-58a27552-1",
+      "manifest_id": "58a27552-1",
+      "file_kept": "/collection/58a27552-1.png",
+      "id_changed": false,
+      "title_fr": "Corbeille noire"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "truffe-doree-242872d6-1",
+      "manifest_id": "242872d6-1",
+      "file_kept": "/collection/242872d6-1.png",
+      "id_changed": false,
+      "title_fr": "Truffe dorée"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fève-éclatée-ae407433-1",
+      "manifest_id": "ae407433-1",
+      "file_kept": "/collection/ae407433-1.png",
+      "id_changed": false,
+      "title_fr": "Fève éclatée"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "feve-fendue-02e5d1a9-0",
+      "manifest_id": "02e5d1a9-0",
+      "file_kept": "/collection/02e5d1a9-0.png",
+      "id_changed": false,
+      "title_fr": "Fève fendue"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "paris-vif-610d3e5e-3",
+      "manifest_id": "610d3e5e-3",
+      "file_kept": "/collection/610d3e5e-3.png",
+      "id_changed": false,
+      "title_fr": "Paris vif"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "paris-impression-99aa93e9-0",
+      "manifest_id": "99aa93e9-0",
+      "file_kept": "/collection/99aa93e9-0.png",
+      "id_changed": false,
+      "title_fr": "Paris impression"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "aile-macro-5f0418a6-3",
+      "manifest_id": "5f0418a6-3",
+      "file_kept": "/collection/5f0418a6-3.png",
+      "id_changed": false,
+      "title_fr": "Aile macro"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ecaille-antique-2ab88b97-1",
+      "manifest_id": "2ab88b97-1",
+      "file_kept": "/collection/2ab88b97-1.png",
+      "id_changed": false,
+      "title_fr": "Écaille antique"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ecaille-minuit-0849043f-0",
+      "manifest_id": "0849043f-0",
+      "file_kept": "/collection/0849043f-0.png",
+      "id_changed": false,
+      "title_fr": "Écaille de minuit"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ecaille-rubis-54ab9e47-1",
+      "manifest_id": "54ab9e47-1",
+      "file_kept": "/collection/54ab9e47-1.png",
+      "id_changed": false,
+      "title_fr": "Écaille rubis"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cellule-petale-9b7e3500-0",
+      "manifest_id": "9b7e3500-0",
+      "file_kept": "/collection/9b7e3500-0.png",
+      "id_changed": false,
+      "title_fr": "Cellule de pétale"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "barbe-de-paon-0d2e58de-2",
+      "manifest_id": "0d2e58de-2",
+      "file_kept": "/collection/0d2e58de-2.png",
+      "id_changed": false,
+      "title_fr": "Barbe de paon"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "rais-dambre-e1b5849a-2",
+      "manifest_id": "e1b5849a-2",
+      "file_kept": "/collection/e1b5849a-2.png",
+      "id_changed": false,
+      "title_fr": "Rais d'ambre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cadran-notaire-4b8837e3-2",
+      "manifest_id": "4b8837e3-2",
+      "file_kept": "/collection/4b8837e3-2.png",
+      "id_changed": false,
+      "title_fr": "Cadran du notaire"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "encre-doffice-0f40c236-2",
+      "manifest_id": "0f40c236-2",
+      "file_kept": "/collection/0f40c236-2.png",
+      "id_changed": false,
+      "title_fr": "Encre d'office"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "balance-gestuelle-39dab806-1",
+      "manifest_id": "39dab806-1",
+      "file_kept": "/collection/39dab806-1.png",
+      "id_changed": false,
+      "title_fr": "Balance gestuelle"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "chambre-du-conseil-fcefbedb-0",
+      "manifest_id": "fcefbedb-0",
+      "file_kept": "/collection/fcefbedb-0.png",
+      "id_changed": false,
+      "title_fr": "Chambre du conseil"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "forme-pale-60260d9c-1",
+      "manifest_id": "60260d9c-1",
+      "file_kept": "/collection/60260d9c-1.png",
+      "id_changed": false,
+      "title_fr": "Forme pâle"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "impro-encre-d5d011b2-2",
+      "manifest_id": "d5d011b2-2",
+      "file_kept": "/collection/d5d011b2-2.png",
+      "id_changed": false,
+      "title_fr": "Impro encre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "joie-empatee-0766fe29-2",
+      "manifest_id": "0766fe29-2",
+      "file_kept": "/collection/0766fe29-2.png",
+      "id_changed": false,
+      "title_fr": "Joie empâtée"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "joie-empatee-0766fe29-3",
+      "manifest_id": "0766fe29-3",
+      "file_kept": "/collection/0766fe29-3.png",
+      "id_changed": false,
+      "title_fr": "Joie empâtée — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "faille-interieure-a981f2b9-3",
+      "manifest_id": "a981f2b9-3",
+      "file_kept": "/collection/a981f2b9-3.png",
+      "id_changed": false,
+      "title_fr": "Faille intérieure"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "resonance-7c85a83b-0",
+      "manifest_id": "7c85a83b-0",
+      "file_kept": "/collection/7c85a83b-0.png",
+      "id_changed": false,
+      "title_fr": "Résonance"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "syncope-148899ab-2",
+      "manifest_id": "148899ab-2",
+      "file_kept": "/collection/148899ab-2.png",
+      "id_changed": false,
+      "title_fr": "Syncope"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "orgue-bordeaux-82666f1f-0",
+      "manifest_id": "82666f1f-0",
+      "file_kept": "/collection/82666f1f-0.png",
+      "id_changed": false,
+      "title_fr": "Orgue bordeaux"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "orgue-bordeaux-82666f1f-3",
+      "manifest_id": "82666f1f-3",
+      "file_kept": "/collection/82666f1f-3.png",
+      "id_changed": false,
+      "title_fr": "Orgue bordeaux — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "thuluth-eclat-b92f2e89-2",
+      "manifest_id": "b92f2e89-2",
+      "file_kept": "/collection/b92f2e89-2.png",
+      "id_changed": false,
+      "title_fr": "Thuluth éclat"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "onde-sonore-64efc039-1",
+      "manifest_id": "64efc039-1",
+      "file_kept": "/collection/64efc039-1.png",
+      "id_changed": false,
+      "title_fr": "Onde sonore"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "vortex-maghribi-dcc69bff-2",
+      "manifest_id": "dcc69bff-2",
+      "file_kept": "/collection/dcc69bff-2.png",
+      "id_changed": false,
+      "title_fr": "Vortex maghribi"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "houle-saphir-9252d079-2",
+      "manifest_id": "9252d079-2",
+      "file_kept": "/collection/9252d079-2.png",
+      "id_changed": false,
+      "title_fr": "Houle saphir"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "houle-saphir-9252d079-3",
+      "manifest_id": "9252d079-3",
+      "file_kept": "/collection/9252d079-3.png",
+      "id_changed": false,
+      "title_fr": "Houle saphir — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "coeur-de-cible-153d96c7-1",
+      "manifest_id": "153d96c7-1",
+      "file_kept": "/collection/153d96c7-1.png",
+      "id_changed": false,
+      "title_fr": "Cœur de cible"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "coeur-de-cible-153d96c7-2",
+      "manifest_id": "153d96c7-2",
+      "file_kept": "/collection/153d96c7-2.png",
+      "id_changed": false,
+      "title_fr": "Cœur de cible — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "geez-fluide-b0b05c46-3",
+      "manifest_id": "b0b05c46-3",
+      "file_kept": "/collection/b0b05c46-3.png",
+      "id_changed": false,
+      "title_fr": "Guèze fluide"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "geez-structure-faf87b97-0",
+      "manifest_id": "faf87b97-0",
+      "file_kept": "/collection/faf87b97-0.png",
+      "id_changed": false,
+      "title_fr": "Guèze structure"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "dalles-kintsugi-550473a4-1",
+      "manifest_id": "550473a4-1",
+      "file_kept": "/collection/550473a4-1.png",
+      "id_changed": false,
+      "title_fr": "Dalles kintsugi"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "dalles-kintsugi-550473a4-3",
+      "manifest_id": "550473a4-3",
+      "file_kept": "/collection/550473a4-3.png",
+      "id_changed": false,
+      "title_fr": "Dalles kintsugi — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "curistes-04608c0b-1",
+      "manifest_id": "04608c0b-1",
+      "file_kept": "/collection/04608c0b-1.png",
+      "id_changed": false,
+      "title_fr": "Curistes"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "curistes-04608c0b-3",
+      "manifest_id": "04608c0b-3",
+      "file_kept": "/collection/04608c0b-3.png",
+      "id_changed": false,
+      "title_fr": "Curistes — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "geste-du-bois-afd9b8a8-3",
+      "manifest_id": "afd9b8a8-3",
+      "file_kept": "/collection/afd9b8a8-3.png",
+      "id_changed": false,
+      "title_fr": "Geste du bois"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "sciage-bf98ae54-1",
+      "manifest_id": "bf98ae54-1",
+      "file_kept": "/collection/bf98ae54-1.png",
+      "id_changed": false,
+      "title_fr": "Sciage"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "chameau-soie-179a4615-1",
+      "manifest_id": "179a4615-1",
+      "file_kept": "/collection/179a4615-1.png",
+      "id_changed": false,
+      "title_fr": "Chameau de soie"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "chameau-soie-179a4615-3",
+      "manifest_id": "179a4615-3",
+      "file_kept": "/collection/179a4615-3.png",
+      "id_changed": false,
+      "title_fr": "Chameau de soie — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "chameau-vent-e37e27f6-1",
+      "manifest_id": "e37e27f6-1",
+      "file_kept": "/collection/e37e27f6-1.png",
+      "id_changed": false,
+      "title_fr": "Chameau de vent"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "chameau-vent-e37e27f6-2",
+      "manifest_id": "e37e27f6-2",
+      "file_kept": "/collection/e37e27f6-2.png",
+      "id_changed": false,
+      "title_fr": "Chameau de vent — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "caravane-soie-0d6fda08-1",
+      "manifest_id": "0d6fda08-1",
+      "file_kept": "/collection/0d6fda08-1.png",
+      "id_changed": false,
+      "title_fr": "Caravane de soie"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-bahia-2b9eae44-3",
+      "manifest_id": "2b9eae44-3",
+      "file_kept": "/collection/2b9eae44-3.png",
+      "id_changed": false,
+      "title_fr": "Profil de Bahia"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "levres-de-rio-ec17f68f-3",
+      "manifest_id": "ec17f68f-3",
+      "file_kept": "/collection/ec17f68f-3.png",
+      "id_changed": false,
+      "title_fr": "Lèvres de Rio"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-andin-10dea18b-3",
+      "manifest_id": "10dea18b-3",
+      "file_kept": "/collection/10dea18b-3.png",
+      "id_changed": false,
+      "title_fr": "Profil andin"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-de-soie-9775a86b-0",
+      "manifest_id": "9775a86b-0",
+      "file_kept": "/collection/9775a86b-0.png",
+      "id_changed": false,
+      "title_fr": "Profil de soie"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "lumiere-francaise-b853c590-1",
+      "manifest_id": "b853c590-1",
+      "file_kept": "/collection/b853c590-1.png",
+      "id_changed": false,
+      "title_fr": "Lumière française"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-de-nacre-39b7d1de-0",
+      "manifest_id": "39b7d1de-0",
+      "file_kept": "/collection/39b7d1de-0.png",
+      "id_changed": false,
+      "title_fr": "Profil de nacre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ocre-dakar-76205453-1",
+      "manifest_id": "76205453-1",
+      "file_kept": "/collection/76205453-1.png",
+      "id_changed": false,
+      "title_fr": "Ocre de Dakar"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "terracotta-sahel-8fc3c3ec-1",
+      "manifest_id": "8fc3c3ec-1",
+      "file_kept": "/collection/8fc3c3ec-1.png",
+      "id_changed": false,
+      "title_fr": "Terracotta sahélienne"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "terracotta-sahel-8fc3c3ec-2",
+      "manifest_id": "8fc3c3ec-2",
+      "file_kept": "/collection/8fc3c3ec-2.png",
+      "id_changed": false,
+      "title_fr": "Terracotta sahélienne — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "sable-de-goree-c53b1af9-0",
+      "manifest_id": "c53b1af9-0",
+      "file_kept": "/collection/c53b1af9-0.png",
+      "id_changed": false,
+      "title_fr": "Sable de Gorée"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cuivre-dafrique-ccea98e1-1",
+      "manifest_id": "ccea98e1-1",
+      "file_kept": "/collection/ccea98e1-1.png",
+      "id_changed": false,
+      "title_fr": "Cuivre d'Afrique"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "amethyste-a3b75e19-1",
+      "manifest_id": "a3b75e19-1",
+      "file_kept": "/collection/a3b75e19-1.png",
+      "id_changed": false,
+      "title_fr": "Améthyste"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bleu-blanc-5b7c6e86-0",
+      "manifest_id": "5b7c6e86-0",
+      "file_kept": "/collection/5b7c6e86-0.png",
+      "id_changed": false,
+      "title_fr": "Bleu-blanc"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fleur-de-lys-2aeb34ff-0",
+      "manifest_id": "2aeb34ff-0",
+      "file_kept": "/collection/2aeb34ff-0.png",
+      "id_changed": false,
+      "title_fr": "Fleur de lys"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "pourpre-172b23e7-1",
+      "manifest_id": "172b23e7-1",
+      "file_kept": "/collection/172b23e7-1.png",
+      "id_changed": false,
+      "title_fr": "Pourpre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "carmin-92478da4-1",
+      "manifest_id": "92478da4-1",
+      "file_kept": "/collection/92478da4-1.png",
+      "id_changed": false,
+      "title_fr": "Carmin"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "emeraude-3c2b570d-0",
+      "manifest_id": "3c2b570d-0",
+      "file_kept": "/collection/3c2b570d-0.png",
+      "id_changed": false,
+      "title_fr": "Émeraude"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "geisha-0fff2f04-0",
+      "manifest_id": "0fff2f04-0",
+      "file_kept": "/collection/0fff2f04-0.png",
+      "id_changed": false,
+      "title_fr": "Geisha"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "iridescence-1ac53769-3",
+      "manifest_id": "1ac53769-3",
+      "file_kept": "/collection/1ac53769-3.png",
+      "id_changed": false,
+      "title_fr": "Iridescence"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "jade-a887cad2-0",
+      "manifest_id": "a887cad2-0",
+      "file_kept": "/collection/a887cad2-0.png",
+      "id_changed": false,
+      "title_fr": "Jade"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "nil-f6dfd79c-0",
+      "manifest_id": "f6dfd79c-0",
+      "file_kept": "/collection/f6dfd79c-0.png",
+      "id_changed": false,
+      "title_fr": "Nil"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "wampum-705cea53-0",
+      "manifest_id": "705cea53-0",
+      "file_kept": "/collection/705cea53-0.png",
+      "id_changed": false,
+      "title_fr": "Wampum"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fard-de-guerre-6d4e366b-3",
+      "manifest_id": "6d4e366b-3",
+      "file_kept": "/collection/6d4e366b-3.png",
+      "id_changed": false,
+      "title_fr": "Fard de guerre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cobra-soie-a50cd5a2-0",
+      "manifest_id": "a50cd5a2-0",
+      "file_kept": "/collection/a50cd5a2-0.png",
+      "id_changed": false,
+      "title_fr": "Cobra de soie"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "canyon-urbain-fe3afa77-1",
+      "manifest_id": "fe3afa77-1",
+      "file_kept": "/collection/fe3afa77-1.png",
+      "id_changed": false,
+      "title_fr": "Canyon urbain"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "arbre-dhiver-85a4e246-1",
+      "manifest_id": "85a4e246-1",
+      "file_kept": "/collection/85a4e246-1.png",
+      "id_changed": false,
+      "title_fr": "Arbre d'hiver"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "champ-de-tulipes-16f46ec8-2",
+      "manifest_id": "16f46ec8-2",
+      "file_kept": "/collection/16f46ec8-2.png",
+      "id_changed": false,
+      "title_fr": "Champ de tulipes"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "moine-cerisier-0f7a91b5-2",
+      "manifest_id": "0f7a91b5-2",
+      "file_kept": "/collection/0f7a91b5-2.png",
+      "id_changed": false,
+      "title_fr": "Moine au cerisier"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "silhouettes-foret-0f01b9a9-2",
+      "manifest_id": "0f01b9a9-2",
+      "file_kept": "/collection/0f01b9a9-2.png",
+      "id_changed": false,
+      "title_fr": "Silhouettes forêt"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "geometrie-sombre-2b2b083e-3",
+      "manifest_id": "2b2b083e-3",
+      "file_kept": "/collection/2b2b083e-3.png",
+      "id_changed": false,
+      "title_fr": "Géométrie sombre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "promenade-thermale-133fd05a-1",
+      "manifest_id": "133fd05a-1",
+      "file_kept": "/collection/133fd05a-1.png",
+      "id_changed": false,
+      "title_fr": "Promenade thermale"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tulipe-prisme-a88dde19-3",
+      "manifest_id": "a88dde19-3",
+      "file_kept": "/collection/a88dde19-3.png",
+      "id_changed": false,
+      "title_fr": "Tulipe prisme"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "foret-cuivre-cec52099-1",
+      "manifest_id": "cec52099-1",
+      "file_kept": "/collection/cec52099-1.png",
+      "id_changed": false,
+      "title_fr": "Forêt cuivre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "creme-or-rose-d49d0dd9-3",
+      "manifest_id": "d49d0dd9-3",
+      "file_kept": "/collection/d49d0dd9-3.png",
+      "id_changed": false,
+      "title_fr": "Crème or rose"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "mousse-cuivre-25b6e22c-1",
+      "manifest_id": "25b6e22c-1",
+      "file_kept": "/collection/25b6e22c-1.png",
+      "id_changed": false,
+      "title_fr": "Mousse cuivre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "flux-argent-f5f1c3da-1",
+      "manifest_id": "f5f1c3da-1",
+      "file_kept": "/collection/f5f1c3da-1.png",
+      "id_changed": false,
+      "title_fr": "Flux d'argent"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "souffle-nature-01f584d8-0",
+      "manifest_id": "01f584d8-0",
+      "file_kept": "/collection/01f584d8-0.png",
+      "id_changed": false,
+      "title_fr": "Souffle nature"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "souffle-nature-01f584d8-2",
+      "manifest_id": "01f584d8-2",
+      "file_kept": "/collection/01f584d8-2.png",
+      "id_changed": false,
+      "title_fr": "Souffle nature — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "quatre-saisons-5634f0a7-0",
+      "manifest_id": "5634f0a7-0",
+      "file_kept": "/collection/5634f0a7-0.png",
+      "id_changed": false,
+      "title_fr": "Quatre saisons"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "quatre-saisons-ii-cfa90464-1",
+      "manifest_id": "cfa90464-1",
+      "file_kept": "/collection/cfa90464-1.png",
+      "id_changed": false,
+      "title_fr": "Quatre saisons — suite"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "quatre-saisons-ii-cfa90464-2",
+      "manifest_id": "cfa90464-2",
+      "file_kept": "/collection/cfa90464-2.png",
+      "id_changed": false,
+      "title_fr": "Quatre saisons — suite — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cristal-facette-37949faf-0",
+      "manifest_id": "37949faf-0",
+      "file_kept": "/collection/37949faf-0.png",
+      "id_changed": false,
+      "title_fr": "Cristal facette"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "adinkra-5bc3b8a4-3",
+      "manifest_id": "5bc3b8a4-3",
+      "file_kept": "/collection/5bc3b8a4-3.png",
+      "id_changed": false,
+      "title_fr": "Adinkra"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "adinkra-or-d7fb7957-3",
+      "manifest_id": "d7fb7957-3",
+      "file_kept": "/collection/d7fb7957-3.png",
+      "id_changed": false,
+      "title_fr": "Adinkra d'or"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "geant-solaire-2e863e71-0",
+      "manifest_id": "2e863e71-0",
+      "file_kept": "/collection/2e863e71-0.png",
+      "id_changed": false,
+      "title_fr": "Géant solaire"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "grains-torrefies-055ba6bd-0",
+      "manifest_id": "055ba6bd-0",
+      "file_kept": "/collection/055ba6bd-0.png",
+      "id_changed": false,
+      "title_fr": "Grains torréfiés"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "grains-torrefies-055ba6bd-1",
+      "manifest_id": "055ba6bd-1",
+      "file_kept": "/collection/055ba6bd-1.png",
+      "id_changed": false,
+      "title_fr": "Grains torréfiés — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "grains-torrefies-055ba6bd-2",
+      "manifest_id": "055ba6bd-2",
+      "file_kept": "/collection/055ba6bd-2.png",
+      "id_changed": false,
+      "title_fr": "Grains torréfiés — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "grains-torrefies-055ba6bd-3",
+      "manifest_id": "055ba6bd-3",
+      "file_kept": "/collection/055ba6bd-3.png",
+      "id_changed": false,
+      "title_fr": "Grains torréfiés — IV"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ville-heureuse-4d799a4e-0",
+      "manifest_id": "4d799a4e-0",
+      "file_kept": "/collection/4d799a4e-0.png",
+      "id_changed": false,
+      "title_fr": "Ville heureuse"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ville-heureuse-nuit-614779d6-3",
+      "manifest_id": "614779d6-3",
+      "file_kept": "/collection/614779d6-3.png",
+      "id_changed": false,
+      "title_fr": "Ville heureuse — nuit"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "boxeur-tachisme-78e82137-0",
+      "manifest_id": "78e82137-0",
+      "file_kept": "/collection/78e82137-0.png",
+      "id_changed": false,
+      "title_fr": "Boxeur tachisme"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "ring-tachisme-d3602e48-1",
+      "manifest_id": "d3602e48-1",
+      "file_kept": "/collection/d3602e48-1.png",
+      "id_changed": false,
+      "title_fr": "Ring tachisme"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "zen-minimal-49fb0c94-3",
+      "manifest_id": "49fb0c94-3",
+      "file_kept": "/collection/49fb0c94-3.png",
+      "id_changed": false,
+      "title_fr": "Zen minimal"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "jazz-ombre-c6f06f9b-3",
+      "manifest_id": "c6f06f9b-3",
+      "file_kept": "/collection/c6f06f9b-3.png",
+      "id_changed": false,
+      "title_fr": "Jazz d'ombre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "corps-f705904c-0",
+      "manifest_id": "f705904c-0",
+      "file_kept": "/collection/f705904c-0.png",
+      "id_changed": false,
+      "title_fr": "Corps"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "papillon-luxe-1fc1b6d6-2",
+      "manifest_id": "1fc1b6d6-2",
+      "file_kept": "/collection/1fc1b6d6-2.png",
+      "id_changed": false,
+      "title_fr": "Papillon luxe"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fils-dor-bb6d68d5-0",
+      "manifest_id": "bb6d68d5-0",
+      "file_kept": "/collection/bb6d68d5-0.png",
+      "id_changed": false,
+      "title_fr": "Fils d'or"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fils-dor-bb6d68d5-2",
+      "manifest_id": "bb6d68d5-2",
+      "file_kept": "/collection/bb6d68d5-2.png",
+      "id_changed": false,
+      "title_fr": "Fils d'or — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fils-dor-soie-d1c89284-0",
+      "manifest_id": "d1c89284-0",
+      "file_kept": "/collection/d1c89284-0.png",
+      "id_changed": false,
+      "title_fr": "Fils d'or — soie"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fils-dor-soie-d1c89284-3",
+      "manifest_id": "d1c89284-3",
+      "file_kept": "/collection/d1c89284-3.png",
+      "id_changed": false,
+      "title_fr": "Fils d'or — soie — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "deco-noir-or-f4d161b1-0",
+      "manifest_id": "f4d161b1-0",
+      "file_kept": "/collection/f4d161b1-0.png",
+      "id_changed": false,
+      "title_fr": "Déco noir et or"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "deco-noir-or-f4d161b1-2",
+      "manifest_id": "f4d161b1-2",
+      "file_kept": "/collection/f4d161b1-2.png",
+      "id_changed": false,
+      "title_fr": "Déco noir et or — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "deco-bordeaux-5cdd1d9b-1",
+      "manifest_id": "5cdd1d9b-1",
+      "file_kept": "/collection/5cdd1d9b-1.png",
+      "id_changed": false,
+      "title_fr": "Déco bordeaux"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "deco-bordeaux-5cdd1d9b-3",
+      "manifest_id": "5cdd1d9b-3",
+      "file_kept": "/collection/5cdd1d9b-3.png",
+      "id_changed": false,
+      "title_fr": "Déco bordeaux — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "dynastie-452e9636-0",
+      "manifest_id": "452e9636-0",
+      "file_kept": "/collection/452e9636-0.png",
+      "id_changed": false,
+      "title_fr": "Dynastie"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "dynastie-452e9636-1",
+      "manifest_id": "452e9636-1",
+      "file_kept": "/collection/452e9636-1.png",
+      "id_changed": false,
+      "title_fr": "Dynastie — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tasse-fumante-3fad2755-1",
+      "manifest_id": "3fad2755-1",
+      "file_kept": "/collection/3fad2755-1.png",
+      "id_changed": false,
+      "title_fr": "Tasse fumante"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "boucles-maghribi-01ae0c18-1",
+      "manifest_id": "01ae0c18-1",
+      "file_kept": "/collection/01ae0c18-1.png",
+      "id_changed": false,
+      "title_fr": "Boucles maghribi"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "balance-fauve-f2952b58-1",
+      "manifest_id": "f2952b58-1",
+      "file_kept": "/collection/f2952b58-1.png",
+      "id_changed": false,
+      "title_fr": "Balance fauve"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "coupe-de-tulipe-99a33906-3",
+      "manifest_id": "99a33906-3",
+      "file_kept": "/collection/99a33906-3.png",
+      "id_changed": false,
+      "title_fr": "Coupe de tulipe"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fèves-en-tas-c51fb37d-0",
+      "manifest_id": "c51fb37d-0",
+      "file_kept": "/collection/c51fb37d-0.png",
+      "id_changed": false,
+      "title_fr": "Fèves en tas"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fèves-en-tas-c51fb37d-2",
+      "manifest_id": "c51fb37d-2",
+      "file_kept": "/collection/c51fb37d-2.png",
+      "id_changed": false,
+      "title_fr": "Fèves en tas — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "argent-foret-e91c1fff-1",
+      "manifest_id": "e91c1fff-1",
+      "file_kept": "/collection/e91c1fff-1.png",
+      "id_changed": false,
+      "title_fr": "Argent forêt"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "argent-foret-e91c1fff-2",
+      "manifest_id": "e91c1fff-2",
+      "file_kept": "/collection/e91c1fff-2.png",
+      "id_changed": false,
+      "title_fr": "Argent forêt — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cuivre-geom-63f3c373-2",
+      "manifest_id": "63f3c373-2",
+      "file_kept": "/collection/63f3c373-2.png",
+      "id_changed": false,
+      "title_fr": "Cuivre géom"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cuivre-geom-63f3c373-3",
+      "manifest_id": "63f3c373-3",
+      "file_kept": "/collection/63f3c373-3.png",
+      "id_changed": false,
+      "title_fr": "Cuivre géom — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "alignement-5eccdcf6-2",
+      "manifest_id": "5eccdcf6-2",
+      "file_kept": "/collection/5eccdcf6-2.png",
+      "id_changed": false,
+      "title_fr": "Alignement"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "flappers-8ddc094d-2",
+      "manifest_id": "8ddc094d-2",
+      "file_kept": "/collection/8ddc094d-2.png",
+      "id_changed": false,
+      "title_fr": "Flappers"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "flappers-8ddc094d-3",
+      "manifest_id": "8ddc094d-3",
+      "file_kept": "/collection/8ddc094d-3.png",
+      "id_changed": false,
+      "title_fr": "Flappers — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "cobra-royal-78bf4dc6-3",
+      "manifest_id": "78bf4dc6-3",
+      "file_kept": "/collection/78bf4dc6-3.png",
+      "id_changed": false,
+      "title_fr": "Cobra royal"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "silhouette-9c33b033-1",
+      "manifest_id": "9c33b033-1",
+      "file_kept": "/collection/9c33b033-1.png",
+      "id_changed": false,
+      "title_fr": "Silhouette"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "pissenlit-19b9a47d-0",
+      "manifest_id": "19b9a47d-0",
+      "file_kept": "/collection/19b9a47d-0.png",
+      "id_changed": false,
+      "title_fr": "Pissenlit"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "lys-stargazer-99173fdd-1",
+      "manifest_id": "99173fdd-1",
+      "file_kept": "/collection/99173fdd-1.png",
+      "id_changed": false,
+      "title_fr": "Lys stargazer"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "lys-stargazer-99173fdd-3",
+      "manifest_id": "99173fdd-3",
+      "file_kept": "/collection/99173fdd-3.png",
+      "id_changed": false,
+      "title_fr": "Lys stargazer — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "coeur-de-tournesol-bc683caf-2",
+      "manifest_id": "bc683caf-2",
+      "file_kept": "/collection/bc683caf-2.png",
+      "id_changed": false,
+      "title_fr": "Cœur de tournesol"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-pourpre-22500dcc-0",
+      "manifest_id": "22500dcc-0",
+      "file_kept": "/collection/22500dcc-0.png",
+      "id_changed": false,
+      "title_fr": "Bonheur pourpre"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-pourpre-22500dcc-1",
+      "manifest_id": "22500dcc-1",
+      "file_kept": "/collection/22500dcc-1.png",
+      "id_changed": false,
+      "title_fr": "Bonheur pourpre — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-pourpre-22500dcc-2",
+      "manifest_id": "22500dcc-2",
+      "file_kept": "/collection/22500dcc-2.png",
+      "id_changed": false,
+      "title_fr": "Bonheur pourpre — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-pourpre-22500dcc-3",
+      "manifest_id": "22500dcc-3",
+      "file_kept": "/collection/22500dcc-3.png",
+      "id_changed": false,
+      "title_fr": "Bonheur pourpre — IV"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-or-fcd9ee3a-0",
+      "manifest_id": "fcd9ee3a-0",
+      "file_kept": "/collection/fcd9ee3a-0.png",
+      "id_changed": false,
+      "title_fr": "Bonheur d'or"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-or-fcd9ee3a-1",
+      "manifest_id": "fcd9ee3a-1",
+      "file_kept": "/collection/fcd9ee3a-1.png",
+      "id_changed": false,
+      "title_fr": "Bonheur d'or — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-or-fcd9ee3a-2",
+      "manifest_id": "fcd9ee3a-2",
+      "file_kept": "/collection/fcd9ee3a-2.png",
+      "id_changed": false,
+      "title_fr": "Bonheur d'or — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bonheur-or-fcd9ee3a-3",
+      "manifest_id": "fcd9ee3a-3",
+      "file_kept": "/collection/fcd9ee3a-3.png",
+      "id_changed": false,
+      "title_fr": "Bonheur d'or — IV"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "happy-bcaf66ff-0",
+      "manifest_id": "bcaf66ff-0",
+      "file_kept": "/collection/bcaf66ff-0.png",
+      "id_changed": false,
+      "title_fr": "Happy"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "happy-bcaf66ff-1",
+      "manifest_id": "bcaf66ff-1",
+      "file_kept": "/collection/bcaf66ff-1.png",
+      "id_changed": false,
+      "title_fr": "Happy — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "happy-bcaf66ff-2",
+      "manifest_id": "bcaf66ff-2",
+      "file_kept": "/collection/bcaf66ff-2.png",
+      "id_changed": false,
+      "title_fr": "Happy — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "happy-bcaf66ff-3",
+      "manifest_id": "bcaf66ff-3",
+      "file_kept": "/collection/bcaf66ff-3.png",
+      "id_changed": false,
+      "title_fr": "Happy — IV"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "joie-azur-b37cdcd4-3",
+      "manifest_id": "b37cdcd4-3",
+      "file_kept": "/collection/b37cdcd4-3.png",
+      "id_changed": false,
+      "title_fr": "Joie d'azur"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "effroi-c5f5da15-0",
+      "manifest_id": "c5f5da15-0",
+      "file_kept": "/collection/c5f5da15-0.png",
+      "id_changed": false,
+      "title_fr": "Effroi"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "effroi-c5f5da15-1",
+      "manifest_id": "c5f5da15-1",
+      "file_kept": "/collection/c5f5da15-1.png",
+      "id_changed": false,
+      "title_fr": "Effroi — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "serenite-e9ca09a3-1",
+      "manifest_id": "e9ca09a3-1",
+      "file_kept": "/collection/e9ca09a3-1.png",
+      "id_changed": false,
+      "title_fr": "Sérénité"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "serenite-e9ca09a3-2",
+      "manifest_id": "e9ca09a3-2",
+      "file_kept": "/collection/e9ca09a3-2.png",
+      "id_changed": false,
+      "title_fr": "Sérénité — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "serenite-e9ca09a3-3",
+      "manifest_id": "e9ca09a3-3",
+      "file_kept": "/collection/e9ca09a3-3.png",
+      "id_changed": false,
+      "title_fr": "Sérénité — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bronze-et-jade-eaa17be9-1",
+      "manifest_id": "eaa17be9-1",
+      "file_kept": "/collection/eaa17be9-1.png",
+      "id_changed": false,
+      "title_fr": "Bronze et jade"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "bronze-et-jade-eaa17be9-2",
+      "manifest_id": "eaa17be9-2",
+      "file_kept": "/collection/eaa17be9-2.png",
+      "id_changed": false,
+      "title_fr": "Bronze et jade — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "spirales-jade-89360c17-0",
+      "manifest_id": "89360c17-0",
+      "file_kept": "/collection/89360c17-0.png",
+      "id_changed": false,
+      "title_fr": "Spirales de jade"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tamtam-6f737f3a-3",
+      "manifest_id": "6f737f3a-3",
+      "file_kept": "/collection/6f737f3a-3.png",
+      "id_changed": false,
+      "title_fr": "Tam-tam"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "foule-une-14507611-2",
+      "manifest_id": "14507611-2",
+      "file_kept": "/collection/14507611-2.png",
+      "id_changed": false,
+      "title_fr": "Foule une"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "filaments-dors-9b233a39-3",
+      "manifest_id": "9b233a39-3",
+      "file_kept": "/collection/9b233a39-3.png",
+      "id_changed": false,
+      "title_fr": "Filaments d'or"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "visages-de-nuit-44d85a84-0",
+      "manifest_id": "44d85a84-0",
+      "file_kept": "/collection/44d85a84-0.png",
+      "id_changed": false,
+      "title_fr": "Visages de nuit"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "fuji-automne-19d2a443-0",
+      "manifest_id": "19d2a443-0",
+      "file_kept": "/collection/19d2a443-0.png",
+      "id_changed": false,
+      "title_fr": "Fuji d'automne"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tourbillon-cacao-f716a485-1",
+      "manifest_id": "f716a485-1",
+      "file_kept": "/collection/f716a485-1.png",
+      "id_changed": false,
+      "title_fr": "Tourbillon cacao"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tourbillon-cacao-f716a485-2",
+      "manifest_id": "f716a485-2",
+      "file_kept": "/collection/f716a485-2.png",
+      "id_changed": false,
+      "title_fr": "Tourbillon cacao — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tourbillon-cacao-f716a485-3",
+      "manifest_id": "f716a485-3",
+      "file_kept": "/collection/f716a485-3.png",
+      "id_changed": false,
+      "title_fr": "Tourbillon cacao — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tourbillon-or-22cbd2a7-1",
+      "manifest_id": "22cbd2a7-1",
+      "file_kept": "/collection/22cbd2a7-1.png",
+      "id_changed": false,
+      "title_fr": "Tourbillon d'or"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tourbillon-or-22cbd2a7-2",
+      "manifest_id": "22cbd2a7-2",
+      "file_kept": "/collection/22cbd2a7-2.png",
+      "id_changed": false,
+      "title_fr": "Tourbillon d'or — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "tourbillon-or-22cbd2a7-3",
+      "manifest_id": "22cbd2a7-3",
+      "file_kept": "/collection/22cbd2a7-3.png",
+      "id_changed": false,
+      "title_fr": "Tourbillon d'or — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "volutes-de-pau-bb7cd9d1-0",
+      "manifest_id": "bb7cd9d1-0",
+      "file_kept": "/collection/bb7cd9d1-0.png",
+      "id_changed": false,
+      "title_fr": "Volutes de Pau"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "volutes-de-pau-bb7cd9d1-2",
+      "manifest_id": "bb7cd9d1-2",
+      "file_kept": "/collection/bb7cd9d1-2.png",
+      "id_changed": false,
+      "title_fr": "Volutes de Pau — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "eclats-calices-bd30db29-2",
+      "manifest_id": "bd30db29-2",
+      "file_kept": "/collection/bd30db29-2.png",
+      "id_changed": false,
+      "title_fr": "Éclats et calices"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "spa-deco-698a5094-2",
+      "manifest_id": "698a5094-2",
+      "file_kept": "/collection/698a5094-2.png",
+      "id_changed": false,
+      "title_fr": "Spa Déco"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "hammam-vif-985b34cb-2",
+      "manifest_id": "985b34cb-2",
+      "file_kept": "/collection/985b34cb-2.png",
+      "id_changed": false,
+      "title_fr": "Hammam vif"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "hammam-vif-985b34cb-3",
+      "manifest_id": "985b34cb-3",
+      "file_kept": "/collection/985b34cb-3.png",
+      "id_changed": false,
+      "title_fr": "Hammam vif — II"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "hammam-vif-iii-c2921c6a-0",
+      "manifest_id": "c2921c6a-0",
+      "file_kept": "/collection/c2921c6a-0.png",
+      "id_changed": false,
+      "title_fr": "Hammam vif — III"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "eau-de-faille-e08b1396-1",
+      "manifest_id": "e08b1396-1",
+      "file_kept": "/collection/e08b1396-1.png",
+      "id_changed": false,
+      "title_fr": "Eau de faille"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-corail-1689e4d2-2",
+      "manifest_id": "1689e4d2-2",
+      "file_kept": "/collection/1689e4d2-2.png",
+      "id_changed": false,
+      "title_fr": "Profil corail"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-matiere-af041940-1",
+      "manifest_id": "af041940-1",
+      "file_kept": "/collection/af041940-1.png",
+      "id_changed": false,
+      "title_fr": "Profil matière"
+    },
+    {
+      "method": "mj_uuid_plus_variant",
+      "catalog_id": "profil-brume-1fb38381-3",
+      "manifest_id": "1fb38381-3",
+      "file_kept": "/collection/1fb38381-3.png",
+      "id_changed": false,
+      "title_fr": "Profil de brume"
+    }
+  ]
+}

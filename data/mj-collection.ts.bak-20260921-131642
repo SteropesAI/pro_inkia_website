@@ -1,0 +1,110 @@
+/**
+ * Midjourney ingest collection — loaded from data/collection-manifest.json.
+ * Old asso / avant-apres / situations stay in data/collection.ts for their own pages.
+ */
+
+import manifest from "./collection-manifest.json";
+import {
+  AMBIANCE_FILTERS,
+  DOMAINES,
+  UNIVERS,
+  labelForOption,
+  type AmbianceId,
+  type CouleurId,
+  type DomaineId,
+  type UniversId,
+} from "./collectionFilters";
+
+export type MjManifestEntry = {
+  id: string;
+  file: string;
+  univers: UniversId | string | null;
+  ambiance: AmbianceId | string | null;
+  colors: CouleurId | string | null;
+  domaine: DomaineId | string | null;
+  prompt: string;
+  source: string;
+  tags_pending: boolean;
+  hash?: string;
+  tags_auto?: string[];
+  /** Optional catalog title (FR). */
+  title?: string | null;
+  title_fr?: string | null;
+  /** Optional catalog description (FR). */
+  description?: string | null;
+  description_fr?: string | null;
+  kind?: string | null;
+  notes_visuelles?: string | null;
+};
+
+export type MjPiece = {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  prompt: string;
+  univers: string | null;
+  ambiance: string | null;
+  colors: string | null;
+  domaine: string | null;
+  tags_pending: boolean;
+};
+
+function titleFromEntry(entry: MjManifestEntry): string {
+  const catalogTitle = (entry.title_fr || entry.title || "").trim();
+  if (catalogTitle) return catalogTitle;
+
+  const universLabel = labelForOption(UNIVERS, entry.univers);
+  const ambianceLabel = labelForOption(AMBIANCE_FILTERS, entry.ambiance);
+  const domaineLabel = labelForOption(DOMAINES, entry.domaine);
+
+  if (universLabel && ambianceLabel) {
+    return `${universLabel} — ${ambianceLabel}`;
+  }
+  if (universLabel && domaineLabel) {
+    return `${universLabel} — ${domaineLabel}`;
+  }
+  if (universLabel) return universLabel;
+  if (domaineLabel) return domaineLabel;
+
+  const raw = (entry.prompt || "")
+    .split("--")[0]
+    ?.replace(/Job ID:.*/i, "")
+    .trim() ?? "";
+  const words = raw.split(/\s+/).filter(Boolean).slice(0, 6);
+  if (words.length === 0) return `Œuvre ${entry.id}`;
+  const t = words.join(" ");
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+function descriptionFromEntry(entry: MjManifestEntry): string {
+  const catalogDesc = (entry.description_fr || entry.description || "").trim();
+  if (catalogDesc) return catalogDesc;
+  return "Proposition sur demande";
+}
+
+function normalizeTag(v: string | null | undefined): string | null {
+  if (v == null) return null;
+  const s = String(v).trim();
+  return s.length > 0 ? s : null;
+}
+
+const ACCEPTED_SOURCES = new Set(["midjourney", "nouveau-catalog", "nouveau-tableau-2"]);
+
+/** Flat public/collection/*.png entries from the manifest (MJ + nouveau catalog + nouveau-tableau-2). */
+export function getMjCollectionPieces(): MjPiece[] {
+  return (manifest as MjManifestEntry[])
+    .filter((e) => ACCEPTED_SOURCES.has(e.source) && !!e.file)
+    .map((e) => ({
+      id: e.id,
+      title: titleFromEntry(e),
+      image: e.file,
+      description: descriptionFromEntry(e),
+      prompt: e.prompt,
+      univers: normalizeTag(e.univers),
+      ambiance: normalizeTag(e.ambiance),
+      colors: normalizeTag(e.colors),
+      domaine: normalizeTag(e.domaine),
+      tags_pending: !!e.tags_pending,
+    }));
+}

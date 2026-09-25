@@ -1,0 +1,23 @@
+{
+  "existing_before": 236,
+  "src_pngs": 192,
+  "copied": 192,
+  "new_entries": 192,
+  "manifest_after": 428,
+  "png_flat_collection": 428,
+  "sources": {
+    "midjourney": 128,
+    "nouveau-catalog": 108,
+    "nouveau-tableau-2": 192
+  },
+  "id_collisions": [],
+  "trous": [],
+  "missing_dest_for_manifest": [],
+  "titles_sample": [
+    "Fractal Flame Alchemy, with intricate, self-replicating patterns of",
+    "Fractal Flame Alchemy, with intricate, self-replicating patterns of",
+    "Fibonacci sunflower pattern algorithm, featuring memory leak…"
+  ],
+  "tags_pending_new": 185,
+  "fully_tagged_new": 7
+}

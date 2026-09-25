@@ -1,0 +1,666 @@
+"use client";
+
+/** Collection: Pinterest masonry + dropdown filters (univers→domaine cascade) + detail modal + cart. */
+
+import React, { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import type { Campaign } from "@/data/campaigns";
+import { getMjCollectionPieces, type MjPiece } from "@/data/mj-collection";
+import {
+  COLLECTION_FILTER_AXES,
+  SECTEUR_LABELS,
+  ambiancesForUnivers,
+  colorsForUnivers,
+  domainesForUnivers,
+  labelForOption,
+  secteurFromUnivers,
+  type CollectionFilterKey,
+  DOMAINES,
+  UNIVERS,
+  AMBIANCE_FILTERS,
+  COLORIS_FILTERS,
+} from "@/data/collectionFilters";
+import {
+  formatsForRatio,
+  formatEur,
+  unitPriceEur,
+} from "@/lib/pricing";
+import { useCart } from "@/lib/cart";
+import { X } from "lucide-react";
+
+interface Props {
+  campaign: Campaign;
+}
+
+type FilterState = Record<CollectionFilterKey, string | null> & {
+  ratio: RatioFilterId | null;
+};
+
+const EMPTY_FILTERS: FilterState = {
+  domaine: null,
+  univers: null,
+  ambiance: null,
+  colors: null,
+  ratio: null,
+};
+
+/** Parse --ar W:H from MJ prompt when present. */
+function ratioFromPrompt(prompt: string | undefined | null): number | null {
+  if (!prompt) return null;
+  const m = /--ar\s+(\d+(?:\.\d+)?)[:\/](\d+(?:\.\d+)?)/i.exec(prompt);
+  if (!m) return null;
+  const w = Number(m[1]);
+  const h = Number(m[2]);
+  if (!Number.isFinite(w) || !Number.isFinite(h) || h === 0) return null;
+  return w / h;
+}
+
+function ratioFromPiece(piece: MjPiece): number {
+  return ratioFromPrompt(piece.prompt) ?? 3 / 2;
+}
+
+type RatioFilterId =
+  | "1-1"
+  | "4-5"
+  | "5-4"
+  | "3-2"
+  | "2-3"
+  | "16-10";
+
+const RATIO_FILTERS: { id: RatioFilterId; label: string; ratio: number }[] = [
+  { id: "1-1", label: "1∶1", ratio: 1 },
+  { id: "4-5", label: "4∶5", ratio: 4 / 5 },
+  { id: "5-4", label: "5∶4", ratio: 5 / 4 },
+  { id: "3-2", label: "3∶2", ratio: 3 / 2 },
+  { id: "2-3", label: "2∶3", ratio: 2 / 3 },
+  { id: "16-10", label: "16∶10", ratio: 16 / 10 },
+];
+
+function closestRatioFilterId(imageRatio: number): RatioFilterId {
+  let best: RatioFilterId = "3-2";
+  let bestDist = Infinity;
+  for (const r of RATIO_FILTERS) {
+    const d = Math.abs(r.ratio - imageRatio);
+    if (d < bestDist) {
+      bestDist = d;
+      best = r.id;
+    }
+  }
+  return best;
+}
+
+
+const SHUFFLE_SEED_KEY = "inkia-collection-shuffle-seed";
+
+function readShuffleSeed(): number {
+  if (typeof window === "undefined") return 1;
+  try {
+    const existing = sessionStorage.getItem(SHUFFLE_SEED_KEY);
+    if (existing) {
+      const n = Number(existing);
+      if (Number.isFinite(n) && n !== 0) return n >>> 0;
+    }
+    const seed = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0 || 1;
+    sessionStorage.setItem(SHUFFLE_SEED_KEY, String(seed));
+    return seed;
+  } catch {
+    return 1;
+  }
+}
+
+/** Mulberry32 + Fisher-Yates — stable for the browser session. */
+function shuffleWithSeed<T>(items: T[], seed: number): T[] {
+  const out = items.slice();
+  let t = seed >>> 0;
+  const rand = () => {
+    t = (t + 0x6d2b79f5) >>> 0;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    const tmp = out[i]!;
+    out[i] = out[j]!;
+    out[j] = tmp;
+  }
+  return out;
+}
+
+function FlipCollectionCard({
+  piece,
+  accent,
+  metaLine,
+  onOpen,
+}: {
+  piece: MjPiece;
+  accent: string;
+  metaLine: string;
+  onOpen: () => void;
+}) {
+  const promptRatio = ratioFromPiece(piece);
+  const [ratio, setRatio] = useState(promptRatio);
+  const faceB = piece.situationImage || piece.image;
+  const hasSitu = Boolean(piece.situationImage);
+
+  return (
+    <article className="group mb-4 inline-block w-full break-inside-avoid cursor-pointer [perspective:1200px]">
+      <div
+        role="button"
+        tabIndex={0}
+        aria-label={`${piece.title} — voir et acheter`}
+        className="relative w-full transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#66C6E8]"
+        onClick={() => onOpen()}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onOpen();
+          }
+        }}
+      >
+        {/* Face A — œuvre plein cadre, ratio natif */}
+        <div
+          className="relative w-full overflow-hidden rounded-xl border border-neutral-100 bg-neutral-200 shadow-sm [backface-visibility:hidden]"
+          style={{ aspectRatio: String(ratio) }}
+        >
+          <Image
+            src={piece.image}
+            alt={piece.title}
+            fill
+            className="object-cover"
+            sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+            onLoad={(e) => {
+              const img = e.currentTarget;
+              if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+                setRatio(img.naturalWidth / img.naturalHeight);
+              }
+            }}
+          />
+        </div>
+
+        {/* Face B — mise en situation + pied */}
+        <div className="pointer-events-none absolute inset-0 flex flex-col overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <div className="relative min-h-0 flex-1 bg-neutral-200">
+            <Image
+              src={faceB}
+              alt={hasSitu ? `${piece.title} — mise en situation` : piece.title}
+              fill
+              className="object-cover"
+              sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+            />
+          </div>
+          <div className="shrink-0 border-t border-neutral-100 bg-white p-3.5">
+            <h3 className="line-clamp-2 text-[15px] font-semibold leading-snug text-neutral-900">
+              {piece.title}
+            </h3>
+            {metaLine ? (
+              <p className="mt-1 line-clamp-1 text-xs text-neutral-500">{metaLine}</p>
+            ) : null}
+            <p className="mt-1 line-clamp-2 text-xs text-neutral-600">
+              {piece.description}
+            </p>
+            <span
+              className="mt-2 inline-block text-xs font-semibold"
+              style={{ color: accent }}
+            >
+              Voir · Acheter
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+
+/** Gallery-tone description from active filters, else piece tags. Never dump MJ prompt. */
+function composeGalleryDescription(
+  piece: MjPiece,
+  filters: FilterState
+): string {
+  const catalogDesc = (piece.description || "").trim();
+  if (catalogDesc && catalogDesc !== "Proposition sur demande") {
+    return catalogDesc;
+  }
+  const universId = filters.univers || piece.univers;
+  const domaineId = filters.domaine || piece.domaine;
+  const ambianceId = filters.ambiance || piece.ambiance;
+  const colorsId = filters.colors || piece.colors;
+
+  const univers = labelForOption(UNIVERS, universId);
+  const domaine = labelForOption(DOMAINES, domaineId);
+  const ambiance = labelForOption(AMBIANCE_FILTERS, ambianceId);
+  const colors = labelForOption(COLORIS_FILTERS, colorsId);
+
+  const bits: string[] = [];
+  if (domaine) {
+    bits.push(`Pensée pour un univers « ${domaine} »`);
+  } else if (univers) {
+    bits.push(`Dans l'esprit « ${univers} »`);
+  } else {
+    bits.push("Une pièce choisie pour les lieux qui comptent");
+  }
+
+  if (ambiance) bits.push(`ambiance ${ambiance.toLowerCase()}`);
+  if (colors) bits.push(`palette ${colors.toLowerCase()}`);
+  if (univers && domaine) bits.push(`inspiration ${univers.toLowerCase()}`);
+
+  if (bits.length === 1) {
+    return `${bits[0]}. Contactez-nous pour une proposition sur mesure.`;
+  }
+  const head = bits[0];
+  const rest = bits.slice(1);
+  if (rest.length === 1) return `${head}, ${rest[0]}.`;
+  return `${head}, ${rest.slice(0, -1).join(", ")} et ${rest[rest.length - 1]}.`;
+}
+
+function SelectFilter({
+  label,
+  value,
+  onChange,
+  options,
+  hint,
+}: {
+  label: string;
+  value: string | null;
+  onChange: (v: string | null) => void;
+  options: { id: string; label: string }[];
+  hint?: string;
+}) {
+  return (
+    <label className="flex flex-col gap-1.5 min-w-0">
+      <span className="text-xs font-semibold uppercase tracking-wide text-neutral-600">
+        {label}
+      </span>
+      <select
+        className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#66C6E8]/60 focus:border-[#66C6E8]"
+        value={value ?? ""}
+        onChange={(e) => onChange(e.target.value || null)}
+      >
+        <option value="">Tous</option>
+        {options.map((opt) => (
+          <option key={opt.id} value={opt.id}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+      {hint ? (
+        <span className="text-[11px] text-neutral-400 leading-snug">{hint}</span>
+      ) : null}
+    </label>
+  );
+}
+
+function PieceDetailModal({
+  piece,
+  filters,
+  accent,
+  onClose,
+}: {
+  piece: MjPiece;
+  filters: FilterState;
+  accent: string;
+  onClose: () => void;
+}) {
+  const { addCollection } = useCart();
+  const imageRatio = ratioFromPiece(piece);
+  const ratioFormats = formatsForRatio(imageRatio);
+  const [formatId, setFormatId] = useState(ratioFormats[0]?.id ?? "60x40");
+  const [added, setAdded] = useState(false);
+  const fmt =
+    ratioFormats.find((f) => f.id === formatId) ?? ratioFormats[0] ?? null;
+  const price = fmt ? unitPriceEur("collection", fmt.id) : 0;
+
+  useEffect(() => {
+    if (!ratioFormats.some((f) => f.id === formatId)) {
+      setFormatId(ratioFormats[0]?.id ?? "60x40");
+    }
+  }, [piece.id, ratioFormats, formatId]);
+  const description = composeGalleryDescription(piece, filters);
+  const meta = [
+    labelForOption(UNIVERS, filters.univers || piece.univers),
+    labelForOption(DOMAINES, filters.domaine || piece.domaine),
+    labelForOption(AMBIANCE_FILTERS, filters.ambiance || piece.ambiance),
+    labelForOption(COLORIS_FILTERS, filters.colors || piece.colors),
+  ].filter(Boolean);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+
+  const onAcheter = () => {
+    if (!fmt) return;
+    addCollection({
+      pieceId: piece.id,
+      title: piece.title,
+      image: piece.image,
+      formatId: fmt.id,
+      formatLabel: fmt.label,
+    });
+    setAdded(true);
+    window.setTimeout(() => setAdded(false), 2000);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="piece-modal-title"
+    >
+      <button
+        type="button"
+        className="absolute inset-0 bg-neutral-950/60 backdrop-blur-[2px]"
+        aria-label="Fermer"
+        onClick={onClose}
+      />
+      <div className="relative z-10 w-full sm:max-w-3xl max-h-[92vh] overflow-y-auto bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl">
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-3 right-3 z-20 p-2 rounded-full bg-white/90 border border-neutral-200 shadow-sm hover:bg-neutral-50"
+          aria-label="Fermer"
+        >
+          <X size={18} />
+        </button>
+
+        <div className="relative aspect-[3/2] bg-neutral-100">
+          <Image
+            src={piece.image}
+            alt={piece.title}
+            fill
+            className="object-cover"
+            sizes="(max-width:768px) 100vw, 768px"
+            priority
+          />
+        </div>
+
+        <div className="p-5 md:p-6 space-y-4">
+          <div>
+            <h2
+              id="piece-modal-title"
+              className="text-xl md:text-2xl font-bold text-neutral-900 pr-8"
+            >
+              {piece.title}
+            </h2>
+            {meta.length > 0 ? (
+              <p className="mt-1.5 text-xs text-neutral-500 flex flex-wrap gap-x-2 gap-y-1">
+                {meta.map((m) => (
+                  <span
+                    key={m}
+                    className="inline-block rounded-full bg-neutral-100 px-2 py-0.5"
+                  >
+                    {m}
+                  </span>
+                ))}
+              </p>
+            ) : null}
+          </div>
+
+          <p className="text-sm text-neutral-600 leading-relaxed">{description}</p>
+
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 space-y-3">
+            <div className="space-y-2">
+              <label className="block">
+                <span className="text-xs font-semibold uppercase tracking-wide text-neutral-600">
+                  Format
+                </span>
+                <select
+                  className="mt-1.5 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm"
+                  value={fmt?.id ?? ""}
+                  onChange={(e) => setFormatId(e.target.value)}
+                >
+                  {ratioFormats.map((f) => (
+                    <option key={f.id} value={f.id}>
+                      {f.label} — {formatEur(unitPriceEur("collection", f.id))}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <button
+              type="button"
+              onClick={onAcheter}
+              className="w-full rounded-lg px-4 py-3 text-sm font-semibold text-neutral-950 transition-opacity hover:opacity-90"
+              style={{ backgroundColor: accent }}
+            >
+              {added
+                ? "Ajouté au panier ✓"
+                : `Acheter — ${formatEur(price)}`}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function CollectionGallery({ campaign }: Props) {
+  const shuffleSeed = useMemo(() => readShuffleSeed(), []);
+  const pieces = useMemo(
+    () => shuffleWithSeed(getMjCollectionPieces(), shuffleSeed),
+    [shuffleSeed]
+  );
+  const [filters, setFilters] = useState<FilterState>(EMPTY_FILTERS);
+  const [selected, setSelected] = useState<MjPiece | null>(null);
+
+  const domaineOptions = useMemo(
+    () => domainesForUnivers(filters.univers),
+    [filters.univers]
+  );
+  const ambianceOptions = useMemo(
+    () => ambiancesForUnivers(filters.univers),
+    [filters.univers]
+  );
+  const colorOptions = useMemo(
+    () => colorsForUnivers(filters.univers),
+    [filters.univers]
+  );
+
+  const secteur = secteurFromUnivers(filters.univers);
+
+  useEffect(() => {
+    setFilters((prev) => {
+      let next = prev;
+      const patch = (key: CollectionFilterKey, ok: boolean) => {
+        if (prev[key] && !ok) {
+          next = next === prev ? { ...prev } : next;
+          next[key] = null;
+        }
+      };
+      patch(
+        "domaine",
+        !prev.domaine || domaineOptions.some((o) => o.id === prev.domaine)
+      );
+      patch(
+        "ambiance",
+        !prev.ambiance || ambianceOptions.some((o) => o.id === prev.ambiance)
+      );
+      patch(
+        "colors",
+        !prev.colors || colorOptions.some((o) => o.id === prev.colors)
+      );
+      return next;
+    });
+  }, [domaineOptions, ambianceOptions, colorOptions]);
+
+  const setFilter = (key: CollectionFilterKey, id: string | null) => {
+    setFilters((prev) => {
+      const next = { ...prev, [key]: id };
+      if (key === "univers" && id !== prev.univers) {
+        next.domaine = null;
+      }
+      return next;
+    });
+  };
+
+  const clearFilters = () => setFilters(EMPTY_FILTERS);
+
+  const activeCount =
+    COLLECTION_FILTER_AXES.filter((a) => filters[a.key] != null).length +
+    (filters.ratio ? 1 : 0);
+
+  const filtered = useMemo(() => {
+    return pieces.filter((piece) => {
+      for (const axis of COLLECTION_FILTER_AXES) {
+        const selectedFilter = filters[axis.key];
+        if (!selectedFilter) continue;
+        const value = piece[axis.key];
+        if (!value || value !== selectedFilter) return false;
+      }
+      if (filters.ratio) {
+        const imageRatio = ratioFromPiece(piece);
+        if (closestRatioFilterId(imageRatio) !== filters.ratio) return false;
+      }
+      return true;
+    });
+  }, [pieces, filters]);
+
+  return (
+    <section id="collection" className="py-16 md:py-20 bg-neutral-50 scroll-mt-8">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">La collection</h2>
+          <div
+            className="w-20 h-1 mx-auto mb-4"
+            style={{ backgroundColor: campaign.accent }}
+          />
+          <p className="text-neutral-600 max-w-2xl mx-auto">
+            Des pièces choisies pour les lieux qui comptent. Ouvrez une œuvre
+            Survolez (ou touchez) une carte : face A = l&apos;œuvre, face B = mise en situation, nom et achat.
+          </p>
+        </div>
+
+        <div className="mb-8 max-w-5xl mx-auto rounded-2xl border border-neutral-200 bg-white p-4 md:p-5 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <SelectFilter
+              label="Univers"
+              value={filters.univers}
+              onChange={(v) => setFilter("univers", v)}
+              options={UNIVERS}
+              hint={
+                secteur
+                  ? `Secteur : ${SECTEUR_LABELS[secteur]}`
+                  : "Oriente le domaine"
+              }
+            />
+            <SelectFilter
+              label="Domaine"
+              value={filters.domaine}
+              onChange={(v) => setFilter("domaine", v)}
+              options={domaineOptions}
+              hint={
+                filters.univers
+                  ? "Options liées à l'univers"
+                  : "Tous les établissements"
+              }
+            />
+            <SelectFilter
+              label="Ambiance"
+              value={filters.ambiance}
+              onChange={(v) => setFilter("ambiance", v)}
+              options={ambianceOptions}
+            />
+            <SelectFilter
+              label="Coloris"
+              value={filters.colors}
+              onChange={(v) => setFilter("colors", v)}
+              options={colorOptions}
+            />
+
+            <label className="flex min-w-0 flex-col gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wide text-neutral-600">
+                Ratio
+              </span>
+              <select
+                className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 shadow-sm focus:border-[#66C6E8] focus:outline-none focus:ring-2 focus:ring-[#66C6E8]/60"
+                value={filters.ratio ?? ""}
+                onChange={(e) =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    ratio: (e.target.value || null) as RatioFilterId | null,
+                  }))
+                }
+              >
+                <option value="">Tous</option>
+                {RATIO_FILTERS.map((r) => (
+                  <option key={r.id} value={r.id}>
+                    {r.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3 border-t border-neutral-100">
+            <p className="text-sm text-neutral-500">
+              {filtered.length} œuvre{filtered.length === 1 ? "" : "s"}
+              {activeCount > 0
+                ? ` · ${activeCount} filtre${activeCount > 1 ? "s" : ""}`
+                : ""}
+              {" · "}
+              {pieces.length} au total
+            </p>
+            {activeCount > 0 ? (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="text-sm font-medium underline-offset-2 hover:underline"
+                style={{ color: campaign.accent }}
+              >
+                Réinitialiser les filtres
+              </button>
+            ) : null}
+          </div>
+        </div>
+
+        {filtered.length === 0 ? (
+          <p className="text-center text-neutral-500 py-16">
+            Aucune œuvre ne correspond à ces filtres
+            {activeCount > 0
+              ? " (les pièces non taguées sont exclues)."
+              : "."}
+          </p>
+        ) : (
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 [column-fill:_balance]">
+            {filtered.map((piece) => {
+              const metaLine = [
+                labelForOption(UNIVERS, piece.univers),
+                labelForOption(DOMAINES, piece.domaine),
+              ]
+                .filter(Boolean)
+                .join(" · ");
+              return (
+                <FlipCollectionCard
+                  key={piece.id}
+                  piece={piece}
+                  accent={campaign.accent}
+                  metaLine={metaLine}
+                  onOpen={() => setSelected(piece)}
+                />
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {selected ? (
+        <PieceDetailModal
+          piece={selected}
+          filters={filters}
+          accent={campaign.accent}
+          onClose={() => setSelected(null)}
+        />
+      ) : null}
+    </section>
+  );
+}
