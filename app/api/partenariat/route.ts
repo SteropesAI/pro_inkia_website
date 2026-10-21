@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import {
   isValidContact,
   normalizeContact,
   type ContactInfo,
 } from "@/lib/contact";
+import {
+  MAX_LONG,
+  MAX_SHORT,
+  contactRows,
+  contactTooLong,
+  hasResendKey,
+  isHoneypot,
+  isTestMessage,
+  logRequest,
+  sendContact,
+} from "@/lib/sendContact";
 
 export const runtime = "nodejs";
 
@@ -25,6 +34,7 @@ async function readPayload(req: Request): Promise<{
   role: string;
   siteWeb: string;
   message: string;
+  hpField: string;
 } | { error: string }> {
   const contentType = req.headers.get("content-type") || "";
 
@@ -53,6 +63,7 @@ async function readPayload(req: Request): Promise<{
       role: strFromObj(o, "role"),
       siteWeb: strFromObj(o, "siteWeb"),
       message: strFromObj(o, "message"),
+      hpField: strFromObj(o, "hp_field"),
     };
   }
 
@@ -76,6 +87,7 @@ async function readPayload(req: Request): Promise<{
     role: strFromForm(form, "role"),
     siteWeb: strFromForm(form, "siteWeb"),
     message: strFromForm(form, "message"),
+    hpField: strFromForm(form, "hp_field"),
   };
 }
 
@@ -85,9 +97,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: payload.error }, { status: 400 });
   }
 
-  const { contact, societe, role, siteWeb, message } = payload;
+  const { contact, societe, role, siteWeb, message, hpField } = payload;
 
-  if (!isValidContact(contact)) {
+  // Honeypot (champ caché hp_field) : rempli = robot → faux succès silencieux, aucun envoi.
+  if (isHoneypot(hpField)) {
+    console.info("[partenariat] honeypot : ignoré");
+    return NextResponse.json({ ok: true });
+  }
+
+  if (!isValidContact(contact) || contactTooLong(contact)) {
     return NextResponse.json(
       { ok: false, error: "Coordonnées incompletes ou invalides" },
       { status: 400 }
@@ -100,25 +118,39 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
-
-  const normalized = normalizeContact(contact);
-  const summary = {
-    kind: "partenariat",
-    at: new Date().toISOString(),
-    contact: normalized,
-    societe,
-    role,
-    siteWeb: siteWeb || undefined,
-    message,
-  };
-
-  try {
-    console.log("[partenariat]", JSON.stringify(summary));
-    const logPath = path.join(process.cwd(), ".prompts-log");
-    fs.appendFileSync(logPath, JSON.stringify(summary) + "\n", "utf8");
-  } catch (err) {
-    console.warn("[partenariat] log write failed", err);
+  if ([societe, role, siteWeb].some((v) => v.length > MAX_SHORT) || message.length > MAX_LONG) {
+    return NextResponse.json({ ok: false, error: "Formulaire invalide" }, { status: 400 });
   }
 
-  return NextResponse.json({ ok: true });
+  if (!hasResendKey()) {
+    console.error("[partenariat] RESEND_API_KEY manquante : envoi impossible");
+    return NextResponse.json({ ok: false, error: "Envoi impossible" }, { status: 500 });
+  }
+
+  const normalized = normalizeContact(contact);
+  const isTest = isTestMessage(message);
+  const sent = await sendContact({
+    route: "partenariat",
+    subject: `${societe} — ${normalized.prenom} ${normalized.nom}`,
+    rows: [
+      ...contactRows(normalized),
+      ["Société", societe],
+      ["Rôle", role],
+      ["Site web", siteWeb],
+      ["Message", message],
+    ],
+    replyTo: normalized.email,
+    isTest,
+  });
+
+  logRequest("partenariat", {
+    status: sent.ok ? "sent" : "send_failed",
+    id: sent.ok ? sent.id : undefined,
+    test: isTest || undefined,
+  });
+
+  if (!sent.ok) {
+    return NextResponse.json({ ok: false, error: "Envoi impossible" }, { status: sent.status });
+  }
+  return NextResponse.json({ ok: true, id: sent.id });
 }

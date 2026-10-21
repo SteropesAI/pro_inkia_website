@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import ContactFields, { EMPTY_CONTACT } from "@/components/forms/ContactFields";
+import Honeypot from "@/components/forms/Honeypot";
 import SoftConfirm from "@/components/forms/SoftConfirm";
 import type { ContactInfo } from "@/lib/contact";
 
@@ -15,6 +16,7 @@ export default function PartenariatForm() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hpField, setHpField] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ export default function PartenariatForm() {
         role,
         siteWeb,
         message,
+        hp_field: hpField,
       };
       const res = await fetch("/api/partenariat", {
         method: "POST",
@@ -121,6 +124,7 @@ export default function PartenariatForm() {
           Pour que Fatou puisse vous répondre.
         </p>
         <ContactFields value={contact} onChange={setContact} />
+        <Honeypot value={hpField} onChange={setHpField} />
       </section>
 
       {error ? <p className="text-sm text-red-600 text-center">{error}</p> : null}

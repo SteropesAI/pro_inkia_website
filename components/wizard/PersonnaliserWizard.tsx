@@ -18,6 +18,7 @@ import {
   type SupportId,
 } from "@/data/promptMapping";
 import ContactFields, { EMPTY_CONTACT } from "@/components/forms/ContactFields";
+import Honeypot from "@/components/forms/Honeypot";
 import SoftConfirm from "@/components/forms/SoftConfirm";
 import type { ContactInfo } from "@/lib/contact";
 
@@ -141,6 +142,7 @@ export default function PersonnaliserWizard() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hpField, setHpField] = useState("");
 
   const contactOk = useMemo(() => {
     return (
@@ -203,6 +205,7 @@ export default function PersonnaliserWizard() {
             taille,
             support,
             contact,
+            hp_field: hpField,
           }),
         });
         const data = (await res.json()) as {
@@ -461,6 +464,7 @@ export default function PersonnaliserWizard() {
               ))}
             </dl>
             <ContactFields value={contact} onChange={setContact} />
+            <Honeypot value={hpField} onChange={setHpField} />
           </section>
         )}
 

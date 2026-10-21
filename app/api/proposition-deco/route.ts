@@ -1,12 +1,20 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import {
   isValidContact,
   normalizeContact,
   type ContactInfo,
 } from "@/lib/contact";
 import { collectImageFiles, saveUploadedImages } from "@/lib/uploads";
+import {
+  MAX_LONG,
+  contactRows,
+  contactTooLong,
+  hasResendKey,
+  isHoneypot,
+  isTestMessage,
+  logRequest,
+  sendContact,
+} from "@/lib/sendContact";
 
 export const runtime = "nodejs";
 
@@ -23,6 +31,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Formulaire invalide" }, { status: 400 });
   }
 
+  // Honeypot (champ caché hp_field) : rempli = robot → faux succès silencieux, aucun envoi.
+  if (isHoneypot(form.get("hp_field"))) {
+    console.info("[proposition-deco] honeypot : ignoré");
+    return NextResponse.json({ ok: true });
+  }
+
   const contact: ContactInfo = {
     prenom: str(form, "prenom"),
     nom: str(form, "nom"),
@@ -33,7 +47,7 @@ export async function POST(req: Request) {
     ville: str(form, "ville"),
   };
 
-  if (!isValidContact(contact)) {
+  if (!isValidContact(contact) || contactTooLong(contact)) {
     return NextResponse.json(
       { ok: false, error: "Coordonnées incompletes ou invalides" },
       { status: 400 }
@@ -51,6 +65,14 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
+  if ([lieu, ambiance, couleurs, tags].some((v) => v.length > MAX_LONG)) {
+    return NextResponse.json({ ok: false, error: "Formulaire invalide" }, { status: 400 });
+  }
+
+  if (!hasResendKey()) {
+    console.error("[proposition-deco] RESEND_API_KEY manquante : envoi impossible");
+    return NextResponse.json({ ok: false, error: "Envoi impossible" }, { status: 500 });
+  }
 
   let photos: string[] = [];
   try {
@@ -61,24 +83,31 @@ export async function POST(req: Request) {
   }
 
   const normalized = normalizeContact(contact);
-  const summary = {
-    kind: "proposition-deco",
-    at: new Date().toISOString(),
-    contact: normalized,
-    lieu,
-    ambiance,
-    couleurs,
-    tags,
-    photos,
-  };
+  const isTest = isTestMessage(lieu, ambiance);
+  const sent = await sendContact({
+    route: "proposition-deco",
+    subject: `${normalized.prenom} ${normalized.nom}`,
+    rows: [
+      ...contactRows(normalized),
+      ["Lieu", lieu],
+      ["Ambiance", ambiance],
+      ["Couleurs", couleurs],
+      ["Tags", tags],
+      ["Photos (dossier uploads/)", photos.join(", ")],
+    ],
+    replyTo: normalized.email,
+    isTest,
+  });
 
-  try {
-    console.log("[proposition-deco]", JSON.stringify(summary));
-    const logPath = path.join(process.cwd(), ".prompts-log");
-    fs.appendFileSync(logPath, JSON.stringify(summary) + "\n", "utf8");
-  } catch (err) {
-    console.warn("[proposition-deco] log write failed", err);
+  logRequest("proposition-deco", {
+    status: sent.ok ? "sent" : "send_failed",
+    id: sent.ok ? sent.id : undefined,
+    test: isTest || undefined,
+    photos: photos.length,
+  });
+
+  if (!sent.ok) {
+    return NextResponse.json({ ok: false, error: "Envoi impossible" }, { status: sent.status });
   }
-
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, id: sent.id });
 }

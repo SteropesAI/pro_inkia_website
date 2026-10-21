@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import ContactFields, { EMPTY_CONTACT } from "@/components/forms/ContactFields";
+import Honeypot from "@/components/forms/Honeypot";
 import SoftConfirm from "@/components/forms/SoftConfirm";
 import type { ContactInfo } from "@/lib/contact";
 
@@ -21,6 +22,7 @@ export default function ConseilForm() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hpField, setHpField] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ export default function ConseilForm() {
     try {
       const fd = new FormData();
       Object.entries(contact).forEach(([k, v]) => fd.append(k, v));
+      fd.append("hp_field", hpField);
       fd.append("lieu", lieu);
       fd.append("intent", intent);
       if (files) {
@@ -120,6 +123,7 @@ export default function ConseilForm() {
           Vos coordonnées
         </h2>
         <ContactFields value={contact} onChange={setContact} />
+        <Honeypot value={hpField} onChange={setHpField} />
       </section>
 
       {error ? <p className="text-sm text-red-600 text-center">{error}</p> : null}

@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import {
   buildPrompt,
   buildSummaryLabels,
@@ -11,6 +9,16 @@ import {
   normalizeContact,
   type ContactInfo,
 } from "@/lib/contact";
+import {
+  MAX_LONG,
+  contactRows,
+  contactTooLong,
+  hasResendKey,
+  isHoneypot,
+  isTestMessage,
+  logRequest,
+  sendContact,
+} from "@/lib/sendContact";
 
 export const runtime = "nodejs";
 
@@ -29,6 +37,13 @@ export async function POST(req: Request) {
   }
 
   const raw = body as Body;
+
+  // Honeypot (champ caché hp_field) : rempli = robot → faux succès silencieux, aucun envoi.
+  if (isHoneypot(raw.hp_field)) {
+    console.info("[personnaliser] honeypot : ignoré");
+    return NextResponse.json({ ok: true });
+  }
+
   const contactRaw = raw.contact;
   const selectionCandidate = {
     styleFamily: raw.styleFamily,
@@ -43,40 +58,68 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Sélection invalide" }, { status: 400 });
   }
 
-  if (!isValidContact(contactRaw)) {
+  if (!isValidContact(contactRaw) || contactTooLong(contactRaw)) {
     return NextResponse.json(
       { ok: false, error: "Coordonnées incompletes ou invalides" },
       { status: 400 }
     );
   }
 
+  // Champ texte optionnel (API uniquement, pas de champ visible) : support du marqueur [TEST AUTO hebdo].
+  if (raw.message !== undefined && typeof raw.message !== "string") {
+    return NextResponse.json({ ok: false, error: "Corps invalide" }, { status: 400 });
+  }
+  const message = typeof raw.message === "string" ? raw.message.trim() : "";
+  if (message.length > MAX_LONG) {
+    return NextResponse.json({ ok: false, error: "Corps invalide" }, { status: 400 });
+  }
+
+  if (!hasResendKey()) {
+    console.error("[personnaliser] RESEND_API_KEY manquante : envoi impossible");
+    return NextResponse.json({ ok: false, error: "Échec de l'enregistrement" }, { status: 500 });
+  }
+
   const contact: ContactInfo = normalizeContact(contactRaw);
   const prompt = buildPrompt(selectionCandidate);
   const summaryLabels = buildSummaryLabels(selectionCandidate);
+  const isTest = isTestMessage(message);
 
-  try {
-    const line = JSON.stringify({
-      at: new Date().toISOString(),
-      kind: "personnaliser",
-      selection: selectionCandidate,
-      contact,
-      summaryLabels,
-      prompt,
-    });
-    console.log("[personnaliser]", line);
-    const logPath = path.join(process.cwd(), ".prompts-log");
-    fs.appendFileSync(logPath, line + "\n", "utf8");
-  } catch (err) {
-    console.warn("[personnaliser] log write failed", err);
+  const sent = await sendContact({
+    route: "personnaliser",
+    subject: `${contact.prenom} ${contact.nom}`,
+    rows: [
+      ...contactRows(contact),
+      ...Object.entries(summaryLabels as unknown as Record<string, unknown>).map(
+        ([k, v]) => [k, Array.isArray(v) ? v.join(", ") : String(v ?? "")] as [string, string]
+      ),
+      ["Message", message],
+    ],
+    replyTo: contact.email,
+    isTest,
+  });
+
+  // .prompts-log : sélection + prompt Midjourney (non personnels, usage ops) ; plus aucune coordonnée.
+  logRequest("personnaliser", {
+    status: sent.ok ? "sent" : "send_failed",
+    id: sent.ok ? sent.id : undefined,
+    test: isTest || undefined,
+    selection: selectionCandidate,
+    summaryLabels,
+    prompt,
+  });
+
+  if (!sent.ok) {
+    return NextResponse.json({ ok: false, error: "Échec de l'enregistrement" }, { status: sent.status });
   }
 
   const payload: {
     ok: true;
+    id: string;
     summaryLabels: typeof summaryLabels;
     prompt?: string;
-  } = { ok: true, summaryLabels };
+  } = { ok: true, id: sent.id, summaryLabels };
 
-  // Dev only: expose Midjourney prompt for console copy-test — never in production
+  // Dev only: expose Midjourney prompt for console copy-test - never in production
   if (process.env.NODE_ENV === "development") {
     payload.prompt = prompt;
   }

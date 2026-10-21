@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import ContactFields, { EMPTY_CONTACT } from "@/components/forms/ContactFields";
+import Honeypot from "@/components/forms/Honeypot";
 import SoftConfirm from "@/components/forms/SoftConfirm";
 import type { ContactInfo } from "@/lib/contact";
 
@@ -25,6 +26,7 @@ export default function PropositionDecoForm() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hpField, setHpField] = useState("");
 
   const toggleTag = (t: string) => {
     setTags((prev) =>
@@ -39,6 +41,7 @@ export default function PropositionDecoForm() {
     try {
       const fd = new FormData();
       Object.entries(contact).forEach(([k, v]) => fd.append(k, v));
+      fd.append("hp_field", hpField);
       fd.append("lieu", lieu);
       fd.append("ambiance", ambiance);
       fd.append("couleurs", couleurs);
@@ -163,6 +166,7 @@ export default function PropositionDecoForm() {
           Pour que Fatou puisse vous répondre.
         </p>
         <ContactFields value={contact} onChange={setContact} />
+        <Honeypot value={hpField} onChange={setHpField} />
       </section>
 
       {error ? <p className="text-sm text-red-600 text-center">{error}</p> : null}
