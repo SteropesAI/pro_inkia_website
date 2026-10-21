@@ -1,0 +1,2 @@
+# Contenu Markdown toujours en LF (evite la recidive CRLF avec core.autocrlf=true sous Windows)
+content/** text eol=lf
